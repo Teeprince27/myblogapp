@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: myblogapp
+
+
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/MyBlogProject?createDatabaseIfNotExist=true
+#    username: springstudent
+#    password: springstudent
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+
+  datasource:
+    url: jdbc:h2:mem:myblogdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  sql:
+    init:
+      mode: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+server:
+  port: 8080
+  servlet:
+    context-path: /myblog
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  jwt:
+    secret: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoGPj6W+xKtLbTbvY71TuazZ4NG7Zn2+X00IBjkzz1/mziRwb0frYCunuoguBlaeObLNUvWGr7fHSM7nfjJt9TOU2pJ15Fuq12qzg7nPRlBTzl+salPGkGVVZGiN/N4QeNa4Vj+bPN+u2unzIAm6QAKOCuGvAqq082SpoPZXJBbarCi42oD60mVeP0RCoFY732aJn4qAHA6qUDSndDiUxyH0Eb9rY+gFWjmiPHAAtlaHMgfu8nzrUMMDzvlF2HV9Ih2AC/M0sB9Z1zP2cfa1f0OQRVOTo4WfF5XsuoESqs/vBSsMyRbQiVwPPMoGxV2suJSGzQzGZBlUi7EHBHr8CfwIDAQAB
+    expiration: 900000
