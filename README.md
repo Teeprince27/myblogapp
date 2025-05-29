@@ -10,3 +10,17 @@
 API Base URL: {{Baseurl}}/api
 Health Check: {{Baseurl}}/health
 API Documentation: {{Baseurl}}/docs
+
+
+## 🚀 Deployment
+Docker Deployment
+Dockerfile
+dockerfileFROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+COPY target/myblogapp-*.jar /opt/myblogapp/myblogapp.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "myblogapp.jar"]
