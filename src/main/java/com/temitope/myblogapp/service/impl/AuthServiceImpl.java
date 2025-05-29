@@ -33,13 +33,13 @@ public class AuthServiceImpl implements AuthService {
         String token;
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException(ResponseCode.USER_NOT_FOUND.getDescription()));
-        if(user!=null && user.getPassword().equals(passwordEncoder.encode(request.getPassword()))) {
-             token = tokenProvider.generateToken(user);
-        }else{
-            throw new RuntimeException(ResponseCode.USER_NOT_FOUND.getDescription());
+        log.info("User found: {}", user);
+        log.info("Password found: {}", passwordEncoder.encode(request.getPassword()));
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException(ResponseCode.INCORECT_USER.getDescription());
         }
 
-
+        token = tokenProvider.generateToken(user);
 
         return new AuthResponse(token, "Bearer", mapToUserResponse(user));
     }

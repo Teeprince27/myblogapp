@@ -8,6 +8,7 @@ public enum ResponseCode {
     USER_NAME_TAKEN("403", "Username is already taken!"),
     EMAIL_TAKEN("403", "Email is already in use!"),
     USER_NOT_FOUND("404", "User not found"),
+    INCORECT_USER("404", "Wrong user details, please check and try again"),
     INVALID_DECISION("405", "Invalid decision. Use APPROVE or REJECT"),
     BLOG_POST_NOT_FOUND("404", "Blog post not found"),
     USER_CANNOT_UPDATE_POST("409", "You don't have permission to update this post"),
