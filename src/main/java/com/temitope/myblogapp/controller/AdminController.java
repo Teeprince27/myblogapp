@@ -52,14 +52,6 @@ public class AdminController {
         return ResponseEntity.ok(blog);
     }
 
-    @GetMapping("/posts")
-    @Operation(summary = "Get all blog posts (admin view)")
-    public ResponseEntity<ApiResponse<PageResponse<BlogPostResponse>>> getAllPosts(
-            Pageable pageable) {
-
-        PageResponse<BlogPostResponse> response = adminService.getAllPosts(pageable);
-        return ResponseEntity.ok(ApiResponse.success(response));
-    }
 
 
 

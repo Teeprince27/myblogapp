@@ -77,15 +77,6 @@ public class BlogController {
         return ResponseEntity.ok(CommonResponse.success(Map.of("message", message)));
     }
 
-    @GetMapping("/my-posts")
-    @Operation(summary = "Get current user's blog posts", security = @SecurityRequirement(name = "bearerAuth"))
-    @PreAuthorize("hasRole('EMPLOYEE') or hasRole('EXTERNAL_USER') or hasRole('ADMIN')")
-    public ResponseEntity<PageResponse<BlogPostResponse>> getUserPosts(
-            Authentication authentication,
-            Pageable pageable) {
-        PageResponse<BlogPostResponse> blogs = blogService.getUserPosts(authentication, pageable);
-        return ResponseEntity.ok(blogs);
-    }
 
 }
 

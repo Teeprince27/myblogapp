@@ -71,11 +71,7 @@ public class AdminServiceImpl implements AdminService {
         return mapToResponse(updatedPost);
     }
 
-    public PageResponse<BlogPostResponse> getAllPosts(Pageable pageable) {
-        Page<BlogPost> posts = blogPostRepository.findAll(pageable);
 
-        return mapToPageResponse(posts);
-    }
 
     private User getCurrentUser(Authentication authentication) {
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();

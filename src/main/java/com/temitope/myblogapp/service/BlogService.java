@@ -12,7 +12,6 @@ public interface BlogService {
     BlogPostResponse createPost(BlogPostRequest request, Authentication authentication);
     BlogPostResponse updatePost(Long id, BlogPostRequest request, Authentication authentication);
     String deletePost(Long id, Authentication authentication);
-    PageResponse<BlogPostResponse> getUserPosts(Authentication authentication, Pageable pageable) ;
 
 
 }

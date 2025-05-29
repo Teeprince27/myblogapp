@@ -132,12 +132,7 @@ public class BlogServiceImpl implements BlogService {
     }
 
 
-    @Override
-    public PageResponse<BlogPostResponse> getUserPosts(Authentication authentication, Pageable pageable) {
-        User user = getCurrentUser(authentication);
-        Page<BlogPost> posts = blogPostRepository.findByAuthorOrderByCreatedAtDesc(user, pageable);
-        return mapToPageResponse(posts, this::mapToResponse);
-    }
+
 
 
     private User getCurrentUser(Authentication authentication) {
