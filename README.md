@@ -6,10 +6,11 @@
 
 
 ## 🚀 Live Demo
+Baseurl= https://myblogapp-eebb120c9c75.herokuapp.com/myblog
 
 API Base URL: {{Baseurl}}/api
 Health Check: {{Baseurl}}/health
-API Documentation: {{Baseurl}}/docs
+API Documentation: {{Baseurl}}/swagger-ui/index.html
 
 
 ## 🚀 Deployment
