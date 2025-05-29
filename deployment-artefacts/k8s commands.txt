@@ -1,1 +1,0 @@
-kubectl apply -f ./deployment-artefacts/rt-rate-configmap.yaml

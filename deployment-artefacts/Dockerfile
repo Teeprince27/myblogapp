@@ -31,3 +31,4 @@ USER appuser
 
 
 CMD ["/app/myblogapp/startup.sh"]
+/Users/temitopeajayi/Downloads/myblogapp/deployment-artefacts/Dockerfile
