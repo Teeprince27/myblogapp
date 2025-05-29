@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface AdminService {
     PageResponse<BlogPostResponse> getPendingPosts(Pageable pageable);
+    PageResponse<BlogPostResponse> getDeletePendingPosts(Pageable pageable);
     BlogPostResponse approvePost(Long postId, ApprovalRequest request, Authentication authentication);
     PageResponse<BlogPostResponse> getAllPosts(Pageable pageable);
 }

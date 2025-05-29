@@ -57,7 +57,8 @@ public SecurityConfig(JwtAuthenticationEntryPoint jwtAuthenticationFilter,
                 .authorizeHttpRequests(auth -> auth
                         // Public endpoints
                         .requestMatchers(HttpMethod.GET, "/api/blogs", "/api/blogs/**").permitAll()
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/auth/**", "/actuator/**", "/actuator", "/actuator/health",
+                                "api/v1/token", "/swagger-ui/**", "v3/**").permitAll()
                         .requestMatchers("/actuator/health", "/myblog/swagger-ui/**", "/myblog/v3/api-docs/**").permitAll()
 
                         // Admin endpoints
@@ -74,6 +75,8 @@ public SecurityConfig(JwtAuthenticationEntryPoint jwtAuthenticationFilter,
 
         return http.build();
     }
+
+
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

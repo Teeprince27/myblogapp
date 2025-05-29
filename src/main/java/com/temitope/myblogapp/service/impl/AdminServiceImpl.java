@@ -35,6 +35,12 @@ public class AdminServiceImpl implements AdminService {
         return mapToPageResponse(posts);
     }
 
+    public PageResponse<BlogPostResponse> getDeletePendingPosts(Pageable pageable) {
+        Page<BlogPost> posts = blogPostRepository.findDeletePendingPostsByAuthorRole(
+                PostStatus.PENDING_DELETION, UserRole.EXTERNAL_USER, pageable);
+        return mapToPageResponse(posts);
+    }
+
     @Transactional
     public BlogPostResponse approvePost(Long postId, ApprovalRequest request, Authentication authentication) {
         User admin = getCurrentUser(authentication);

@@ -35,6 +35,13 @@ public class AdminController {
         return ResponseEntity.ok(blogs);
     }
 
+    @GetMapping("/posts/delete/pending")
+    @Operation(summary = "Get pending blogs", description = "Retrieve all blog posts pending approval")
+    public ResponseEntity<PageResponse<BlogPostResponse>> getDeletePendingPosts(Pageable pageable) {
+        PageResponse<BlogPostResponse> blogs = adminService.getDeletePendingPosts(pageable);
+        return ResponseEntity.ok(blogs);
+    }
+
     @PutMapping("/posts/{id}/approve")
     @Operation(summary = "Approve blog post", description = "Approve a pending blog post")
     public ResponseEntity<BlogPostResponse> approveBlog(

@@ -25,6 +25,9 @@ public interface BlogPostRepository extends JpaRepository<BlogPost, Long> {
     @Query("SELECT bp FROM BlogPost bp WHERE bp.status = :status AND bp.author.role = :authorRole ORDER BY bp.createdAt ASC")
     Page<BlogPost> findPendingPostsByAuthorRole(@Param("status") PostStatus status, @Param("authorRole") UserRole authorRole, Pageable pageable);
 
+    @Query("SELECT bp FROM BlogPost bp WHERE bp.status = :status AND bp.author.role = :authorRole ORDER BY bp.createdAt ASC")
+    Page<BlogPost> findDeletePendingPostsByAuthorRole(@Param("status") PostStatus status, @Param("authorRole") UserRole authorRole, Pageable pageable);
+
 }
 
 
